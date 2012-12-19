@@ -3,8 +3,9 @@
 A Grape/Goliath API for tracking votes. With simple math captcha! 
   
 See a live example: [Mathy-Poll on Heroku](http://mathy-poll.herokuapp.com/)
+-----
 
-![Screen Shot](https://dl.dropbox.com/u/18216283/blog/mathy-poll.jpg)
+[![Mathy-poll](https://dl.dropbox.com/u/18216283/blog/mathy-poll.jpg)](http://mathy-poll.herokuapp.com/)
 
 1. Vote is created.
 2. API asks a simple math question (What's 2+2?).
