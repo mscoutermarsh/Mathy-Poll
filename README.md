@@ -1,11 +1,6 @@
 [Mathy-Poll](https://github.com/mscoutermarsh/Mathy-Poll)
-===========================
-A Grape/Goliath API for tracking votes. With simple math captcha! 
-  
-See a live example: [Mathy-Poll on Heroku](http://mathy-poll.herokuapp.com/)
 -----
-
-[![Mathy-poll](https://dl.dropbox.com/u/18216283/blog/mathy-poll.jpg)](http://mathy-poll.herokuapp.com/)
+A Grape/Goliath API for tracking votes. With simple math captcha! 
 
 1. Vote is created.
 2. API asks a simple math question (What's 2+2?).
@@ -13,6 +8,12 @@ See a live example: [Mathy-Poll on Heroku](http://mathy-poll.herokuapp.com/)
 
 Very simple rate limiting by IP address.
 
+Demo:
+-----
+See a live demo: [Mathy-Poll on Heroku](http://mathy-poll.herokuapp.com/)
+
+Screenshot:
+[![Mathy-poll](https://dl.dropbox.com/u/18216283/blog/mathy-poll.jpg)](http://mathy-poll.herokuapp.com/)
 
 Setup:
 ------
