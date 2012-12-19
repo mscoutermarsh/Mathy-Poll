@@ -8,3 +8,5 @@ gem 'em-synchrony', :git => 'git://github.com/igrigorik/em-synchrony.git',
                             
 gem 'grape'
 gem 'goliath'
+gem 'tilt'
+gem 'haml'

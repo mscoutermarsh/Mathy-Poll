@@ -20,3 +20,11 @@ else # local environment
   ActiveRecord::Base.establish_connection(db)
 end
 
+config[:template] = {
+  :layout_engine => :haml,
+}
+config[:template_engines] = {
+  :haml => {
+    :escape_html   => true
+  }
+}
