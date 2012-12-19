@@ -1,0 +1,9 @@
+production: &production
+  adapter: em_postgresql
+  encoding: unicode
+  database: mathy
+  pool: 5
+  username: mc
+  password: 
+development:
+  <<: *production
