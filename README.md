@@ -1,12 +1,16 @@
-Mathy-Poll
+[Mathy-Poll](https://github.com/mscoutermarsh/Mathy-Poll)
 ===========================
 A Grape/Goliath API for tracking votes. With simple math captcha! 
   
+See a live example: [Mathy-Poll on Heroku](http://mathy-poll.herokuapp.com/)
+
+![Screen Shot](https://dl.dropbox.com/u/18216283/blog/mathy-poll.jpg)
 
 1. Vote is created.
 2. API asks a simple math question (What's 2+2?).
 3. If user answers correctly. Vote is counted in poll.
 
+Very simple rate limiting by IP address.
 
 
 Setup:
@@ -30,7 +34,14 @@ Start the server!
 
 Deploy to [Heroku](http://heroku.com):
 ------
-Coming soon...
+Create a new app.
+    heroku apps:create 
+
+Run migrations
+    heroku run rake db:migrate RACK_ENV=production
+
+Check out your new poll on heroku!
+    yourappname.herokuapp.com
 
 API Documentation:
 ------
