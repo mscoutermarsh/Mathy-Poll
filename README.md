@@ -1,6 +1,6 @@
 Mathy-Poll
 ===========================
-A Grape/Goliath API for tracking votes. To limit cheating, instead of using a captcha, use simple math!  
+A Grape/Goliath API for tracking votes. With simple math captcha! 
   
 
 1. Vote is created.
@@ -28,9 +28,12 @@ Start the server!
 
      ruby server.rb -vs
 
+Deploy to [Heroku](http://heroku.com):
+------
+Coming soon...
 
-API Documentation
-============================
+API Documentation:
+------
 
 ### Create a new Vote
 
@@ -54,7 +57,7 @@ If your math is correct, the vote will be confirmed.
     }
 
 ### Get number of votes
-To see how many votes their are for contestant #1.
+To see how many votes there are for contestant #1.
 
     http GET 0.0.0.0:9000/votes/1
 
@@ -66,6 +69,10 @@ And it will return:
 
 
 Need help?
-============================
+---------
 + Twitter [@msccc](http://twitter.com/mscccc "@mscccc") 
 + [mikecoutermarsh.com](http://mikecoutermarsh.com/ "mikecoutermarsh") 
+
+Credits
+-------
++ Based off of: [Grape-Goliath-Example](https://github.com/djones/grape-goliath-example)
