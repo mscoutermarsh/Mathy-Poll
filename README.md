@@ -13,6 +13,7 @@ Demo:
 See a live demo: [Mathy-Poll on Heroku](http://mathy-poll.herokuapp.com/)
 
 Screenshot:
+
 [![Mathy-poll](https://dl.dropbox.com/u/18216283/blog/mathy-poll.jpg)](http://mathy-poll.herokuapp.com/)
 
 Setup:
