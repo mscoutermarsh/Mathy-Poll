@@ -38,12 +38,15 @@ Start the server!
 Deploy to [Heroku](http://heroku.com):
 ------
 Create a new app.
-    heroku apps:create 
+
+    heroku apps:create APPNAMEHERE
 
 Run migrations
+
     heroku run rake db:migrate RACK_ENV=production
 
 Check out your new poll on heroku!
+
     yourappname.herokuapp.com
 
 API Documentation:
