@@ -11,49 +11,43 @@ class Votes < Grape::API
       request.ip
     end
 
+    # more than 3 votes in the past hour from this IP?
     def ip_votes_hour
-      # more than 3 votes in the past hour?
       Vote.find(:all, :conditions => ["created_at > ? AND ip = ? AND valid_vote = ?", 1.hour.ago, ip_address, true]).count <= 3
     end
 
+    # more than 20 votes in the past day from this IP?
     def ip_votes_day
-      # more than 20 votes in the past day?
       Vote.find(:all, :conditions => ["created_at > ? AND ip = ? AND valid_vote = ?", 1.day.ago, ip_address, true]).count <= 20
     end
 
+    # validate the voter.
     def validate
-      # validate the voter.
-      # is this and ajax request? and is there an ip address?
-      # have they votes >= 5 times this hour?
-      # ajax and
       ip_address and ip_votes_hour and ip_votes_day
 
+      # Restrict to only ajax calls by adding: and ajax
+      # ip_address and ip_votes_hour and ip_votes_day and ajax
+    end
+  end
+
+  # return number of votes
+  resource 'votes' do
+    get "/:contestant" do 
+      votes = Vote.where(:vote => params['contestant'], :valid_vote => true).count
+      {:votes=>votes}
     end
   end
   
-  resource 'votes' do
-    # get "/ip_votes_hour" do
-    #   Vote.find(:all, :conditions => ["created_at > ? AND ip = ?", 1.hour.ago, ip_address]).count
-    # end
-    # get "/ip_votes_day" do
-    #   Vote.find(:all, :conditions => ["created_at > ? AND ip = ?", 1.day.ago, ip_address]).count
-    # end
-    get "/" do
-      ip_votes_day
-    end
-    
-    get "/:id" do 
-      Vote.where(:vote => params['id'], :valid_vote => true).count
-    end
-    
+  # create and confirm votes
+  resource 'vote' do
     desc "Create new vote"
     params do
-      requires :id, :type => String, :desc => "Integer for which contestant you're voting for."
+      requires :contestant, :type => Integer, :desc => "Integer for which contestant you're voting for."
     end
-    post "/:id" do
-      # ask the user simple math
+    post "/:contestant" do
+      # Validate voter and then ask the user some math.
       if validate then
-        new_vote = Vote.create(:vote => params['id'], :ip=>request.ip)
+        new_vote = Vote.create(:vote => params['contestant'], :ip=>request.ip)
         {:id=>new_vote.id,:question=>new_vote.question}
       else
         error!({:message=>"You've already voted!"}, 401)
@@ -64,7 +58,7 @@ class Votes < Grape::API
     params do
       requires :answer, :type => Integer, :desc => "Answer the math problem."
     end
-    post "/confirm/:id" do
+    post "/confirm/:id/:answer" do
       # check the users answer
       new_vote = Vote.find(params[:id])
       if new_vote.valid_vote then

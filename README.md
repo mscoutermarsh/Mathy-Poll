@@ -32,44 +32,40 @@ Start the server!
 API Documentation
 ============================
 
-POST
-----
-
 ### Create a new Vote
-`Post: http://localhost:4567/vote/:id`
 
-Creates a new vote. Returns json containing the ID and the simple math problem.
+    http POST 0.0.0.0:9000/vote/1
 
-Response:  
-`{"question":"What is 4+3?","id":"96"}`
+This will return the vote id and the math question:
 
-After recieving this response, you must confirm the vote by answering the question (What is 4+3?).
+    {
+        "id": 7, 
+        "question": "What's 13+3?"
+    }
 
-### Confirm Vote
-`Post: http://localhost:4567/confirm/:id/:answer`
+Now to confirm your vote... answer the question by POSTing to /vote/confirm/:id/:answer.
 
-**Post:** ID and answer to question.
+    http POST 0.0.0.0:9000/vote/confirm/7/16
 
-If correct: the vote will be valid and counted.  
-`{"message":"Thanks for voting!"}`
+If your math is correct, the vote will be confirmed.
 
-If incorrect: error message will be returned.  
-`{"message":"Oops, wrong answer."}`
+    {
+        "message": "Thanks for voting!"
+    }
+
+### Get number of votes
+To see how many votes their are for contestant #1.
+
+    http GET 0.0.0.0:9000/votes/1
+
+And it will return:
+
+    {
+        "votes": 4
+    }
 
 
-GET
-----
-
-### Get count of votes
-
-`Get: http://localhost:4567/votes/:id`
-
-Returns number of validated votes for a contestant.
-
-Response:  
-`{"votes":"21"}`
-
-Things to do
+Need help?
 ============================
-+ something
-+ something
++ Twitter [@msccc](http://twitter.com/mscccc "@mscccc") 
++ [mikecoutermarsh.com](http://mikecoutermarsh.com/ "mikecoutermarsh") 
