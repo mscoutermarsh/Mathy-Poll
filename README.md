@@ -10,23 +10,23 @@ A Grape/Goliath API for tracking votes. To limit cheating, instead of using a ca
 
 
 Setup:
-============================
+------
 Clone the repo:
 
-`git clone https://github.com/mscoutermarsh/Mathy-Poll.git
-cd Mathy-Poll/`
+     git clone https://github.com/mscoutermarsh/Mathy-Poll.git
+     cd Mathy-Poll
 
 Install gems:
 
-`bundle install`
+     bundle install
 
 Setup the database:
 
-`rake db:setup`
+     rake db:setup
 
 Start the server!
 
-`ruby server.rb -vs`
+     ruby server.rb -vs
 
 
 API Documentation
