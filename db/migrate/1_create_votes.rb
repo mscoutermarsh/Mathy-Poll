@@ -4,6 +4,7 @@ class CreateVotes < ActiveRecord::Migration
     create_table :votes do |t|
       t.integer  :vote
       t.string   :ip
+      t.string   :question
       t.boolean  :valid_vote
       t.integer  :answer
       t.timestamps
