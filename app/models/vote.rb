@@ -12,15 +12,15 @@ class Vote < ActiveRecord::Base
     self.valid_vote = false
     self.question = "What's #{int1}+#{int2}?"
     self.save
-  end  
+  end
+
+  def make_valid
+      self.valid_vote = true
+      self.save
+      true
+  end
 
   def confirm(answer)
-    if answer == self.answer then
-        self.valid_vote = true
-        self.save
-        true
-    else
-        false
-    end
+    answer == self.answer ? self.make_valid  : false
   end
 end
