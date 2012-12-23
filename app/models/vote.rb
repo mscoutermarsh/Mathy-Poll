@@ -21,6 +21,6 @@ class Vote < ActiveRecord::Base
   end
 
   def confirm(answer)
-    answer == self.answer ? self.make_valid  : false
+    (answer == self.answer) ? self.make_valid  : false
   end
 end
