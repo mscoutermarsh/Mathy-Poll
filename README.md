@@ -84,6 +84,24 @@ And it will return:
         "votes": 4
     }
 
+### Performance Specs on Heroku
+Goliath/Grape handles high loads **really** well. This has been tested at 200-300 requests per second on a single Heroku dyno.
+
+    1 Dyno:
+ 
+    Transactions:              12715 hits
+    Availability:              99.99 %
+    Elapsed time:              59.85 secs
+    Data transferred:          0.13 MB
+    Response time:            0.44 secs
+    Transaction rate:          212.45 trans/sec
+    Throughput:              0.00 MB/sec
+    Concurrency:                94.16
+    Successful transactions:    12715
+    Failed transactions:        1
+    Longest transaction:        11.56
+    Shortest transaction:      0.08
+
 
 Need help?
 ---------
